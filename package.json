@@ -1,0 +1,26 @@
+{
+  "name": "cypressautomation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "headtest": "npx cypress run --headed",
+    "chrometest": "npx cypress run --headed --browser chrome",
+    "Automationtest": "npx cypress run --record --key 377d9504-ed21-4d67-ac6f-e3fc6f6273b8 --headed --browser chrome",
+    "Pomimplementtest": "npx cypress run --spec \"cypress/integration/framework/pomimplement.js\"",
+    "frameworktest": "npx cypress run --spec \"cypress/integration/framework/*\"",
+    "exampletest": "npx cypress run --spec \"cypress/integration/example/*\""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^13.13.1",
+    "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.8.2"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
+    "@cypress/browserify-preprocessor": "^3.0.2"
+  }
+}
