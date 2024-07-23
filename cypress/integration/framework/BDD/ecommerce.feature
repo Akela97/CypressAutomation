@@ -1,6 +1,6 @@
 Feature: End to end Ecommerce validation
 
-  # Application Regression
+#   Application Regression
 
   Scenario: Ecommerce products delivery
     Given I open Ecommerce page
