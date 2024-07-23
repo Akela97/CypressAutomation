@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-07-22T21:25:30.283Z",
+    "end": "2024-07-22T21:25:49.641Z",
+    "duration": 19358,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9f1ec584-a3e4-47b2-8760-eb47832ebcc8",
+      "title": "",
+      "fullFile": "cypress\\integration\\framework\\pomimplement.js",
+      "file": "cypress\\integration\\framework\\pomimplement.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "231948e6-61a9-4622-9c73-54a43abd5bbf",
+          "title": "Start firts automation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Hook function",
+              "fullTitle": "Start firts automation Hook function",
+              "timedOut": null,
+              "duration": 10366,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var homepage = new _Homepage[\"default\"]();\nvar productpage = new _Productpage[\"default\"]();\nvar checkoutpage = new _Checkoutpage[\"default\"]();\ncy.visit(Cypress.env('url') + '/angularpractice/');\nhomepage.getEditbox().type(testData.name);\nhomepage.getgender().select(testData.Gender);\nhomepage.getTowaydata().should('have.value', testData.name);\nhomepage.getenterpriniorbutton().should('be.enabled');\nhomepage.getshoptab().click();\n//how to get multiple data from array\ntestData.Productname.forEach(function (element) {\n  cy.selectproduct(element);\n});\nproductpage.getcheckout().click();\nvar sum = 0;\ncheckoutpage.productprice().each(function ($e1, index, $list) {\n  // cy.log ($e1.text())\n  var amount = $e1.text();\n  var spiltamount = amount.split(\" \");\n  spiltamount = spiltamount[1].trim();\n  // cy.log(spiltamount)\n  sum = Number(sum) + Number(spiltamount);\n}).then(function () {\n  cy.log(sum);\n});\ncheckoutpage.totalprice().then(function (element) {\n  var amount = element.text();\n  var total = amount.split(\" \");\n  total = total[1].trim();\n  expect(Number(total)).to.equal(sum);\n});\n// cy.pause()\ncheckoutpage.clickcheckout().click();\ncheckoutpage.entertext().type(testData.country);\n// Cypress.config('defaultCommandTimeout',12000)\ncheckoutpage.dropdownselect().should('be.visible').click();\ncheckoutpage.checkboxcheck().click({\n  force: true\n});\ncheckoutpage.clickpurchase().click();\n//checkoutpage.showalert().should('have.text','Success! Thank you! Your order will be delivered in next few weeks:-)')\ncheckoutpage.showalert().then(function (element) {\n  var text = element.text();\n  expect(text.includes('Success')).to.be[\"true\"];\n});",
+              "err": {},
+              "uuid": "e73e6d30-b440-4dfd-b3ee-7157f0a5bae3",
+              "parentUUID": "231948e6-61a9-4622-9c73-54a43abd5bbf",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e73e6d30-b440-4dfd-b3ee-7157f0a5bae3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10366,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -3,9 +3,9 @@
 import Homepage from "../POM classes/Homepage";
 import Productpage from "../POM classes/Productpage";
 import Checkoutpage from "../POM classes/Checkoutpage";
-
+ 
 describe('Start firts automation', () => {
-    //Hook method
+    //Hook methodn
     let testData;
     before(function () {
         // root-level hook runs once before all tests
